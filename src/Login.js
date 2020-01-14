@@ -15,6 +15,7 @@ async function getCsrfToken() {
         const response = await fetch(`${SERVER_URL}/csrf/`, {
         credentials: "include",
         });
+        
         const data = await response.json();
         _csrfToken = data.csrfToken;
     }
