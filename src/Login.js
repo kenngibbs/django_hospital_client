@@ -22,6 +22,7 @@ async function getCsrfToken() {
         console.log(_csrfToken);
     }
     
+    Cookies.set('csrftoken', _csrfToken);
     return _csrfToken;
 }
 
