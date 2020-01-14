@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import './App.css';
 import Cookies from 'js-cookie';
 
+const SERVER_URL = 'http://strat-hospital-server.herokuapp.com';
 let _csrfToken = null;
 
 async function getCsrfToken() {
@@ -11,7 +12,7 @@ async function getCsrfToken() {
     if (!_csrfToken)
     {
         console.log("Didn't find stored CSRF token in cookie");
-        const response = await fetch("http://localhost:8000/csrf/", {
+        const response = await fetch(`${SERVER_URL}/csrf/`, {
         credentials: "include",
         });
         const data = await response.json();
@@ -46,7 +47,7 @@ function NewContact() {
             'contact_hospital_list': selected1
         }
     
-        const response = await fetch("http://localhost:8000/new_contact_add/",
+        const response = await fetch(`${SERVER_URL}/new_contact_add/`,
         {
             method: "POST",
             headers:
@@ -74,7 +75,7 @@ function NewContact() {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch("http://localhost:8000/hospital/")
+            const response = await fetch(`${SERVER_URL}/hospital/`)
             const data = await response.json();
             console.log(data);
             set_hospital_list(data);

@@ -3,6 +3,7 @@ import {Link, Redirect} from "react-router-dom";
 import Cookies from 'js-cookie';
 import './App.css';
 
+const SERVER_URL = 'http://strat-hospital-server.herokuapp.com';
 let _csrfToken = null;
 
 async function getCsrfToken() {
@@ -11,7 +12,7 @@ async function getCsrfToken() {
     if (!_csrfToken)
     {
         console.log("Didn't find stored CSRF token in cookie");
-        const response = await fetch("http://localhost:8000/csrf/", {
+        const response = await fetch(`${SERVER_URL}/csrf/`, {
         credentials: "include",
         });
         const data = await response.json();
@@ -33,7 +34,7 @@ function Login() {
             'django_password': document.getElementById("django_password").value,
         }
 
-        const response = await fetch("http://localhost:8000/login_auth/",
+        const response = await fetch(`${SERVER_URL}/login_auth/`,
         {
             method: "POST",
             headers:
