@@ -17,9 +17,9 @@ async function getCsrfToken() {
         });
 
         const data = await response.json();
+        _csrfToken = data.csrfToken;
         console.log("Got the cookie");
         console.log(_csrfToken);
-        _csrfToken = data.csrfToken;
     }
     
     return _csrfToken;
