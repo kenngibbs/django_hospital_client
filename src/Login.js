@@ -3,7 +3,7 @@ import {Link, Redirect} from "react-router-dom";
 import Cookies from 'js-cookie';
 import './App.css';
 
-const SERVER_URL = 'http://strat-hospital-server.herokuapp.com';
+const SERVER_URL = 'https://strat-hospital-server.herokuapp.com';
 let _csrfToken = null;
 
 async function getCsrfToken() {
@@ -15,7 +15,7 @@ async function getCsrfToken() {
         const response = await fetch(`${SERVER_URL}/csrf/`, {
         credentials: "include",
         });
-        
+
         const data = await response.json();
         _csrfToken = data.csrfToken;
     }
