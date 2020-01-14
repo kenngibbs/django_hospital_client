@@ -49,19 +49,21 @@ function Login() {
             credentials: 'include',
             body: JSON.stringify(messageBody)
         });
-        const data = await response.json();
+        const data = await response.text();
         console.log(data);
+        // const data = await response.json();
+        // console.log(data);
 
-        if (data.result === "false")
-            setError(data.message);
-        else{
-            console.log("go to home page");
-            console.log(data.hospital_info);
-            set_auth_user({
-                'username': data.username,
-                'hospital_info': data.hospital_info,
-            })
-            // console.log(auth_user["hospital_info"]);
+        // if (data.result === "false")
+        //     setError(data.message);
+        // else{
+        //     console.log("go to home page");
+        //     console.log(data.hospital_info);
+        //     set_auth_user({
+        //         'username': data.username,
+        //         'hospital_info': data.hospital_info,
+        //     })
+        //     // console.log(auth_user["hospital_info"]);
         }
     }
 
