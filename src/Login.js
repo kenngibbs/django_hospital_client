@@ -64,7 +64,7 @@ function Login() {
         //         'hospital_info': data.hospital_info,
         //     })
         //     // console.log(auth_user["hospital_info"]);
-        }
+        // }
     }
 
     var submit_login = async(e) =>{
